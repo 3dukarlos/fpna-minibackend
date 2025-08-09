@@ -1,5 +1,7 @@
-def handler(request):
-    body = b'{"ok": true, "runtime": "python", "mode": "handler"}'
-    headers = {"Content-Type": "application/json"}
-    status = 200
-    return (body, status, headers)
+from flask import Flask, jsonify
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET"])
+def hello():
+    return jsonify(ok=True, runtime="python", framework="flask", file="hello.py")
