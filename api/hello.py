@@ -1,4 +1,11 @@
-# NÃO declare nada chamado handler ou Handler neste arquivo.
+# Defesa: remova símbolos que confundem o runtime
+for k in ("Handler", "handler"):
+    if k in globals():
+        try:
+            del globals()[k]
+        except Exception:
+            pass
+
 from flask import Flask, jsonify
 app = Flask(__name__)
 
