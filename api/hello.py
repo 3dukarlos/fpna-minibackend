@@ -1,6 +1,8 @@
-from flask import Flask, jsonify
-app = Flask(__name__)
-
-@app.route('/', methods=['GET'])
-def hello():
-    return jsonify({"ok": True, "runtime": "python"})
+# /api/hello.py
+def handler(request):
+    # Vercel Python: exportar "handler" também funciona (sem Flask)
+    return {
+        "statusCode": 200,
+        "headers": {"content-type": "application/json"},
+        "body": '{"ok": true, "runtime": "python", "mode": "handler"}'
+    }
