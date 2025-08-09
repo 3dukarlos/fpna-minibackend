@@ -10,5 +10,5 @@ from flask import Flask, jsonify
 app = Flask(__name__)
 
 @app.get("/")
-def ok():
+def hello():
     return jsonify(ok=True, runtime="python", framework="flask", file="hello.py")
